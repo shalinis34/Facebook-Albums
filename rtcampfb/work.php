@@ -21,7 +21,7 @@ require_once 'header.php';
     <div class="container text-center margin-10">
         <div class="row">
             <div class="row animatedParent">
-                <div class="col-xs-6 col-sm-4 col-md-4">
+                <div class="col-md-4">
                     <div class="animated rotateInDownLeft go">
                         <div class="service-box">
                             <div class="service-icon">
@@ -42,7 +42,7 @@ require_once 'header.php';
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-4">
+                <div class="col-md-4">
                     <div class="animated rotateInDownLeft slow go">
                         <div class="service-box">
                             <div class="service-icon">
@@ -64,7 +64,7 @@ require_once 'header.php';
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-4">
+                <div class="col-md-4">
                     <div class="animated rotateInDownLeft slower go">
                         <div class="service-box">
                             <div class="service-icon">
