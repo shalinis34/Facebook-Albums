@@ -1,0 +1,163 @@
+/* 
+    Document   : custom.css
+    Created on : 25 Sep, 2015, 12:03:38 AM
+    Author     : shalinis34
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+p{
+    padding: 10px;
+}
+#middle{padding: 150px 0;min-height:550px;}
+.stylish-panel {
+    padding: 20px 0;
+    text-align: center;
+}
+.margin-10,.btn{margin-bottom: 10px;}
+.stylish-panel > div > div{
+    padding: 10px;
+    border: 1px solid #cee;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+.stylish-panel > div:hover > div{
+    margin-top: -10px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+    background: rgba(200, 200, 200, 0.1);
+    transition: 0.5s;
+}
+
+.stylish-panel > div:hover img {
+    border-radius: 50%;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+.hero {
+    background:  rgba(0, 0, 0, 0) url("../images/hero-bg.jpg") no-repeat scroll center center / cover ;
+    height: auto;
+    padding: 150px 0;
+}
+.hero h1 {
+    color: #fff !important;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 12px;
+    margin: 40px 0 10px;
+}
+.hero p {
+    color: #fefefe;
+    font-size: 24px;
+    font-weight: 400;
+}
+.btn-special:hover, .btn-special:focus {
+    background: rgba(61, 201, 179, 0.6) none repeat scroll 0 0;
+    color: #fff;
+}
+.btn-special{
+    border-radius: 5px;
+    box-shadow: 0 3px 0 0 #309383;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin:30px 0 0;
+    padding: 20px 40px;
+    text-transform: uppercase;
+}
+
+.divider-header {
+    background: #3dc9b3 none repeat scroll 0 0;
+    display: block;
+    height: 2px;
+    margin: 0 auto 10px;
+    width: 50px;
+}
+#footer{
+    background-color: #404040;
+    padding: 50px 0 30px;
+    text-align: center;
+    color:#fff;
+}
+.navbar-inverse {
+    background-color: #404040;
+}
+open-popup {padding:20px}
+.white-popup {
+    position: relative;
+    background: #FFF;
+    padding: 40px;
+    width: auto;
+    max-width: 200px;
+    margin: 20px auto;
+    text-align: center;
+}
+.ui-progressbar {
+    position: relative;
+}
+.progress-label {
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+
+
+.service-box:hover {
+    border-bottom: 2px solid #3dc9b3;
+}
+.service-box:hover,.slideInDown:hover,.section-heading:hover,.slideInUp:hover {
+    margin-top: -20px;
+    transition: all 0.2s ease-in-out 0s;
+}
+.service-icon {
+    margin-bottom: 20px;
+}
+.service-desc h5 {
+    color: #666;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.service-box {
+    background: #fdfdfd none repeat scroll 0 0;
+    border-bottom: 2px solid #f7f7f7;
+    padding: 40px 20px;
+}
+#cover {
+    background: #0b0b0b none repeat scroll 0 0;
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1042;
+    display: none;
+    color:#fff;
+}
+#cover #progress{
+    margin: 25% 25px;
+}
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+#cover #progress{
+    margin: 50% 25px;
+}
+}
