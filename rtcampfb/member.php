@@ -10,11 +10,12 @@ require_once 'header.php';
 <section id="middle">
     <div class="container">
         <?php
-        ///////////////////////////////google connectivity/////////////////
+        /***********************************************
+         * Function for connecting to google
+         **********************************************/
         $client = googleConnect();
 
-
-        /*         * **********************************************
+        /*   * **********************************************
           If we're logging out we just need to clear our
           local access token in this case
          * ********************************************** */
@@ -52,24 +53,14 @@ require_once 'header.php';
             $url = "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=" . $token;
             $userInfo = curlinfo($url);
             $_SESSION['google_userInfo'] = $userInfo;
-            //  print_r($userInfo);
+            
         }
-
-
         if (isset($_SESSION['fb_access_token']) && ($_SESSION['fb_access_token'] != '')) {
-/////////////Grab User Info via curl //////////////
-
-            $userResponse = getUserInfo(); // getfacebook id and name of facebook user
-/////////////Grab User Info via curl end here //////////////
+            $userResponse = getUserInfo();
             $fetchAllAlbums = fetchAllAlbums();
-            //print_r($fetchAllAlbums);die();
             $fetchAllAlbums = $fetchAllAlbums->data;
             if (count($fetchAllAlbums)) {
-
-////////////////listing all albums/////////
         ?>
-
-
                 <div class="container">
             <?php
                 if (isset($authUrl)) {
@@ -90,22 +81,18 @@ require_once 'header.php';
                         <button class="btn btn-warning"  title="Move Selected Album" onclick="moveSelectedAlbum();"><span aria-hidden="true" class="glyphicon glyphicon-move"></span> Move Selected</button>
                         <button class="btn btn-warning"  title="Move All Album" onclick="moveAllAlbum();"><span aria-hidden="true" class="glyphicon glyphicon-move"></span> Move All</button>
                         <div id="ajaxphp-results"></div>
-
-
                     </div>
-
                     <div class="row stylish-panel">
 
                     <?php
-//////////listing photos of albums..gallery//////////
-                    foreach ($fetchAllAlbums as $key => $value) {   ///grab cover photo///
-                        //echo $value->id;
+  /*   * **********************************************
+         Listing albums section start here W
+         * ********************************************** */
+                    foreach ($fetchAllAlbums as $key => $value) {
                         $url = "https://graph.facebook.com/$value->id/photos?fields=name,source,id&access_token=" . $_SESSION['fb_access_token'];
                         $singleAlbumDetail = curlinfo($url);
-                        //print_r($singleAlbumDetail);
                         $singleAlbumDetail = $singleAlbumDetail->data;
                     ?>
-
                         <div class="col-md-4 margin-10">
                             <div>
                                 <img  alt="image" class="img-circle img-thumbnail open-<?php echo $value->id; ?>" src="https://graph.facebook.com/<?php echo $value->id; ?>/picture?type=album&access_token=<?php echo $_SESSION['fb_access_token']; ?>"/>
@@ -122,22 +109,23 @@ require_once 'header.php';
 
                                     $('.open-<?php echo $value->id; ?>').magnificPopup({
                                         items: [
-<?php
-                        foreach ($singleAlbumDetail as $key1 => $value1) {
-?>
+                     <?php
+                        foreach ($singleAlbumDetail as $key1 => $value1)
                     {
-                        src: '<?php echo $value1->source; ?>',
-                        title: '<?php echo $value->name; ?>'
-                    },
-<?php
-                        }
-?>
-            ],
-            gallery: {
-                enabled: true
-            },
-            type: 'image' // this is a default type
-        });
+                      ?>
+                       {
+                            src: '<?php echo $value1->source; ?>',
+                            title: '<?php echo $value->name; ?>'
+                        },
+                        <?php
+                     }
+                        ?>
+                                ],
+                                gallery: {
+                                    enabled: true
+                                },
+                                type: 'image' // this is a default type
+                            });
                                 </script>
                             </div>
                         </div>
@@ -148,7 +136,8 @@ require_once 'header.php';
             </div>
         </div>
         <?php
-                } else {
+               }
+          else {
                     echo 'Sorry ,no album available in your facebook account.';
                 }
             } else {
@@ -221,9 +210,7 @@ require_once 'header.php';
                 success: function(data) {
                   afterSucess(data);
                 }
-
             });
-
         }
         function downloadAllAlbum(album_id)
         {  //By each()
@@ -260,11 +247,9 @@ require_once 'header.php';
             }
             else { alert('Please connect via google in order to continue to move your albums.');}
 
-
         }
         function moveSelectedAlbum(album_id)
         {
-
             if(googleconnect!='0')
             {
                 //By each()
@@ -303,11 +288,9 @@ require_once 'header.php';
                     success: function(data) {
                        afterSucess(data);
                     }
-
                 });
             }
             else { alert('Please connect via google in order to continue');}
         }
     </script>
 <?php include 'footer.php'; ?>
-

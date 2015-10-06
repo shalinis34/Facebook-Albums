@@ -42,7 +42,7 @@ require_once 'header.php';
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class=" col-md-4">
                     <div class="animated rotateInDownLeft slow go">
                         <div class="service-box">
                             <div class="service-icon">

@@ -1,7 +1,5 @@
 <?php
-/* 
- * Configuration settings of facebook and google connect
- */
+/*  * Configuration settings of facebook and google connect */
 ini_set('max_execution_time','0');
 define('BASE_URL','http://localhost/rtcampfb');
 define('FB_APP_ID','912130642187388');

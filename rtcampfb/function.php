@@ -16,27 +16,28 @@
         if(curl_errno($ch)){
           echo '<p class="bg-danger">Curl error: ' . curl_error($ch).'</p>'; exit();
         }
-        return $output;
         curl_close($ch);
+        return $output;
+        
   }
 
   function getUserInfo()
   {
-  $userInfoUrl="https://graph.facebook.com/me?access_token=".$_SESSION['fb_access_token'];
-  return $userResponse=curlinfo($userInfoUrl);
+        $userInfoUrl="https://graph.facebook.com/me?access_token=".$_SESSION['fb_access_token'];
+        return curlinfo($userInfoUrl);
   }
 
   function fetchAllAlbums()
   {
     $url="https://graph.facebook.com/me/albums?access_token=".$_SESSION['fb_access_token'];
-    return $response=curlinfo($url);
+    return curlinfo($url);
   }
 
     function fetchSingleAlbums($album_id)
   {
      $url="https://graph.facebook.com/$album_id/photos?fields=name,source,id&access_token=".$_SESSION['fb_access_token'];
      $singleAlbumDetail=curlinfo($url);
-     return  $singleAlbumDetail=$singleAlbumDetail->data;
+     return $singleAlbumDetail->data;
   }
   function downloadImage($sourceurl,$destination_path)
   {
@@ -74,5 +75,3 @@
         $client->addScope("https://www.googleapis.com/auth/userinfo.profile");
         return $client;
         }
-
- ?>
